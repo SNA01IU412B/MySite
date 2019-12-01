@@ -1,5 +1,14 @@
 body {
-    background: url(bcgrnd.jpg) /* Цвет фона и путь к файлу (заменить картинку, разрешение 2к+) */
+    background: url(dodger.jpg) /* Цвет фона и путь к файлу (заменить картинку, разрешение 2к+) */
     no-repeat; /*Чтобы не было заполнения фона картинками*/
-    background-size: 100%; 
+    background-size: 100%;
+    margin: 0; /*чтобы нормально верстать блоки без отступов от края страницы*/ 
    }
+ .block1 { 
+    padding: 5px; 
+    text-align: center;
+    color: white;
+ }
+ .left {
+
+ }
