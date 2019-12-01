@@ -1,3 +1,5 @@
 body {
-    background: url(bcgrnd.jpg); /* Цвет фона и путь к файлу */
+    background: url(bcgrnd.jpg) /* Цвет фона и путь к файлу */
+    no-repeat /*Чтобы не было заполнения фона картинками*/
+    center; 
    }
