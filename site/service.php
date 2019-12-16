@@ -1,0 +1,49 @@
+// <?php
+//require('db.php');
+//include("auth.php");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,600i,700|Play:700&display=swap&subset=cyrillic-ext" rel="stylesheet">
+	<title>ChallengerClub</title>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header_inner">
+				<div class="header_logo">DODGE CHALLENGER</div>
+
+				<nav>
+
+					<a class="nav_link" href="Main.php">Главная</a>
+					<a class="nav_link" href="info.php">Инфо</a>
+					<a class="nav_link" href="#">Форум</a>
+					<a class="nav_link" href="logout.php">
+						Выйти
+					</a>
+
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="intro">
+		<div class="container">
+				<div class="intro_inner">
+					<p>Москва</p>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.3074318138456!2d37.43612631609065!3d55.82262299407214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b548763215ab2d%3A0xfd9838f654dffc08!2sDodge!5e0!3m2!1sru!2sru!4v1576412927624!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					<p>Сервисный центр "MOPAR" тюнинг и ремонт.</p>
+				    <p>Нашим пользователям скидка /**/</p>
+				    <br>
+				    <p>Казань</p>
+				    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4479.707126058954!2d49.08928563886083!3d55.847855797210535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41594d5ff7374335%3A0xd23c942ff1f86720!2z0JDQstGC0L7QotC10YXQptC10L3RgtGA!5e0!3m2!1sru!2sru!4v1576415677628!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+				    <p>Сервисный центр АвтоТехЦентр</p>
+				    <p>Нашим пользователям скидка /**/</p>
+
+			    </div>
+		</div>
+    </div>
+</body>
+</html>

@@ -25,7 +25,7 @@ and password='".md5($password)."'";
         if($rows==1){
      $_SESSION['username'] = $username;
             // Редирект
-     header("Location: main.html");
+     header("Location: Main.php");
          }else{
  echo "<div class='form'>
 <h3>Пароль или логин введен неверно.</h3>
