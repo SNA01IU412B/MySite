@@ -31,7 +31,7 @@ a:hover{
     margin-right: auto;
     text-align: center;
 }
-p, h1 {
+p, h1, h3 {
     color: white;
 }
 input[type='text'], input[type='email'],
