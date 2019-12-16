@@ -20,7 +20,7 @@ include("auth.php");
 
 					<a class="nav_link" href="Main.php">Главная</a>
 					<a class="nav_link" href="service.php">Сервис</a>
-					<a class="nav_link" href="#">Форум</a>
+					<a class="nav_link" href="forum.php">Форум</a>
 					<a class="nav_link" href="logout.php">
 						Выйти
 					</a>

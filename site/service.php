@@ -20,7 +20,7 @@
 
 					<a class="nav_link" href="Main.php">Главная</a>
 					<a class="nav_link" href="info.php">Инфо</a>
-					<a class="nav_link" href="#">Форум</a>
+					<a class="nav_link" href="forum.php">Форум</a>
 					<a class="nav_link" href="logout.php">
 						Выйти
 					</a>
