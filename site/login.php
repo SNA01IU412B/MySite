@@ -22,6 +22,12 @@ and password='".md5($password)."'";
  $rows = mysqli_num_rows($result);
         if($rows==1){
      $_SESSION['username'] = $username;
+     $row = mysqli_fetch_assoc($result);
+     $adm = $row['adm'];
+     $_SESSION['adm'] = $adm;
+     $row = mysqli_fetch_assoc($result);
+     $driver = $row['driver'];
+     $_SESSION['driver'] = $driver;
             // Редирект
      header("Location: Main.php");
          }else{

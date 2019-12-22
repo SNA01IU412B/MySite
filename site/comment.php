@@ -1,6 +1,7 @@
 <?php
+  include("auth.php");
   /* Принимаем данные из формы */
-  $name = $_POST["name"];
+  $name = $_SESSION["username"];
   $page_id = $_POST["page_id"];
   $text_comment = $_POST["text_comment"];
   $name = htmlspecialchars($name);// Преобразуем спецсимволы в HTML-сущности
