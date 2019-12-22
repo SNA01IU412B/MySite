@@ -14,19 +14,11 @@
 <body>
 	<?php
 	if(isSet($_SESSION['username'])){
-		$dbc=mysqli_connect('localhost','root','','shop');
-		$nick=$_SESSION['username'];
-		$q="SELECT adm FROM users WHERE username='$nick'";
-		$marr=mysqli_fetch_assoc(mysqli_query($dbc,$q));
-		if($marr['adm']!=1){
-			echo "Доступ запрещен";
-			mysqli_close($dbc);
-			exit(4);
+		$two = $_SESSION["adm"];
+		if($two!=1){
+			echo "Denied";
+			header("Location: login.php");
 		}
-	} else {
-		echo "Доступ запрещен";
-		mysqli_close($dbc);
-		exit(4);
 	}
 	?>
 	<form method="post" enctype="multipart/form-data" > 
@@ -49,11 +41,11 @@
 	$mnf=$_POST['mnf'];
 	$tag=$_POST['tag'];
 	$descr=$_POST['descr'];
-	$dir='C:/Users/Home/xamp/htdocs';
+	$dir='C:/Users/Home/xamp/htdocs/site/pictures/';
 	$link=$dir . basename($_FILES['pic']['name']);
 	$q="INSERT INTO products VALUES(DEFAULT,'$stype','$name','$mnf','$tag','$descr','$link',DEFAULT);";
  	copy($_FILES['pic']['tmp_name'],$link);
-	mysqli_query($dbc,$q);
+	mysqli_query(mysqli_connect('localhost','root','','shop'),$q);
 	?>
 </body>
 </html>

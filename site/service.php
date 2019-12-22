@@ -35,12 +35,12 @@
 					<p>Москва</p>
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.3074318138456!2d37.43612631609065!3d55.82262299407214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b548763215ab2d%3A0xfd9838f654dffc08!2sDodge!5e0!3m2!1sru!2sru!4v1576412927624!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 					<p>Сервисный центр "MOPAR" тюнинг и ремонт.</p>
-				    <p>Нашим пользователям скидка /**/</p>
+				    <p>Нашим пользователям скидка 10%</p>
 				    <br>
 				    <p>Казань</p>
 				    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4479.707126058954!2d49.08928563886083!3d55.847855797210535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41594d5ff7374335%3A0xd23c942ff1f86720!2z0JDQstGC0L7QotC10YXQptC10L3RgtGA!5e0!3m2!1sru!2sru!4v1576415677628!5m2!1sru!2sru" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 				    <p>Сервисный центр АвтоТехЦентр</p>
-				    <p>Нашим пользователям скидка /**/</p>
+				    <p>Нашим пользователям скидка 5%</p>
 
 			    </div>
 		</div>

@@ -32,8 +32,18 @@ require("auth.php");
 				$mysqli = new mysqli("localhost", "root", "", "comment");// Подключается к бд
 				$result_set = $mysqli->query("SELECT * FROM `comment_table` WHERE `page_id`='$page_id'"); //Вытаскиваем все комментарии для данной страницы
 				while ($row = $result_set->fetch_assoc()) {
-				print_r("<b>". $row["id"] .$row["name"]. "</b>:". $row["text_comment"]); //Вывод комментариев
-					?>
+				print_r("<b>id:". $row["id"]. "<br>". $row["name"]. "</b>:". $row["text_comment"]); //Вывод комментариев
+					}?>
+			    </div>
+			    <div class="intro_inners">
+			    	<form name="delete" action="delete.php" method="post">
+			    		<p>
+			    			<input type="text" name="id_comment" value="Ввести id комментария">
+			    		</p>
+			    		<p>
+			    		<input type="submit" value="Удалить">
+			    	    </p>
+			    	</form>
 			    </div>
 		</div>
     </div>

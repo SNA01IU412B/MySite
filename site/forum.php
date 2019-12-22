@@ -49,6 +49,8 @@ require("auth.php");
 			?>
 		</div>
 				<div class="intro_inners" flex="0 0 auto">
+					<?php
+					 if ($_SESSION['driver'] == 1) { ?>
 					<form name="comment" action="comment.php" method="post">
 						<p>
 							<label>Комментарий:</label>
@@ -60,6 +62,7 @@ require("auth.php");
 							<input type="submit" value="Отправить" />
 						</p>
 					</form>
+				<?php } ?>
 			    </div>
 		</div>
     </div>

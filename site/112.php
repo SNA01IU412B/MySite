@@ -7,7 +7,7 @@
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"UPDATE products SET rtng='$rtng' WHERE id='$id';");
 	}
 	$nick=$_SESSION['username'];
-	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE nick='$username';"))['adm']==1)&($_POST['dochg'])){
+	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE username='$username';"))['adm']==1)&($_POST['dochg'])){
 		$stype=$_POST['stype'];
 		$name=$_POST['name'];
 		$descr=$_POST['descr'];
@@ -21,17 +21,17 @@
 			mysqli_query(mysqli_connect('localhost','root','','shop'),"UPDATE products SET link='$link' WHERE id='$id';");
 		}
 	}
-	if(($_POST['docmnt'])&(isset($_SESSION['nick']))){
+	if(($_POST['docmnt'])&(isset($_SESSION['username']))){
 		$text=$_POST['cmnt'];
-		$cid=mysqli_fetch_assoc(mysqli_query(mysqli_connect'localhost','root','','shop'),"SELECT cid FROM comments WHERE pid='$id' ORDER BY cid DESC;"))['cid'];
+		$cid=mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT cid FROM comments WHERE pid='$id' ORDER BY cid DESC;"))['cid'];
 		if(!isset($cid)){
 			$cid=0;
 		}
 		$cid=$cid+1;
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"INSERT INTO comments VALUES(DEFAULT,'$cid','$id','$nick','$text');");
 	}
-	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE nick='$nick';"))['adm']==1)&($_POST['dodrop'])){
-		unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('','grigorev','fuckenfucken_grig','grigorev'),"SELECT link FROM products WHERE id='$id';"))['link'],22));
+	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE username='$nick';"))['adm']==1)&($_POST['dodrop'])){
+		unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],22));
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"DELETE FROM products WHERE id='$id';");
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"DELETE FROM comments WHERE pid='$id';");
 	}
@@ -39,7 +39,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>11sem2</title>
+	<title>Товар</title>
+	<link rel="stylesheet" href="css/oldstyle.css" />
 	<meta charset="utf-8">
 	<style>
 		input {display:block;}
@@ -56,10 +57,10 @@
 	echo "<br/>rating: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT rtng FROM products WHERE id='$id';"))['rtng'],"<br/>";
 	?>
 	<?php
-	if((isset($_SESSION['nick']))&(isset($_GET['prid']))){
+	if((isset($_SESSION['username']))&(isset($_GET['prid']))){
 	?>
 		<br/>
-		rate this product:
+		Оцените продукт:
 		<br/>
 		<form method="post">
 			<select name="strs">
@@ -70,10 +71,10 @@
 				<option value="5">5</option>
 			</select>
 			<input type="hidden" name="rate" value="1">
-			<input type="submit" value="rate">
+			<input type="submit" value="Оценить">
 		</form>
 		<br/>
-		leave a comment:
+		Оставить комментарий:
 		<form method="post">
 			<textarea name="cmnt"></textarea>
 			<input type="hidden" name="docmnt" value="1">
@@ -90,8 +91,8 @@
 	}
 	?>
 	<?php
-	$nick=$_SESSION['nick'];
-	if(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE nick='$nick';"))['adm']==1){
+	$nick=$_SESSION['username'];
+	if(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE username='$nick';"))){
 	?>
 	<br/>
 	<form method="post" enctype="multipart/form-data" > 
