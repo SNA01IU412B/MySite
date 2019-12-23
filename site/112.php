@@ -7,7 +7,7 @@
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"UPDATE products SET rtng='$rtng' WHERE id='$id';");
 	}
 	$nick=$_SESSION['username'];
-	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE username='$username';"))['adm']==1)&($_POST['dochg'])){
+	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE username='$nick';"))['adm']==1)&($_POST['dochg'])){
 		$stype=$_POST['stype'];
 		$name=$_POST['name'];
 		$descr=$_POST['descr'];
@@ -15,8 +15,8 @@
 		$tag=$_POST['tag'];
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"UPDATE products SET styp='$stype',name='$name',mnf='$mnf',pricetag='$tag',descr='$descr' WHERE id='$id';");
 		if(isset($_POST['dopic'])){
-			unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],22));
-			$link="/usr/share/nginx/html/11sem/" . basename($_FILES['pic']['name']);
+			unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],40));
+			$link="C:\Users\Home\xamp\htdocs\site\pictures" . basename($_FILES['pic']['name']);
 			copy($_FILES['pic']['tmp_name'],$link);
 			mysqli_query(mysqli_connect('localhost','root','','shop'),"UPDATE products SET link='$link' WHERE id='$id';");
 		}
@@ -30,8 +30,8 @@
 		$cid=$cid+1;
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"INSERT INTO comments VALUES(DEFAULT,'$cid','$id','$nick','$text');");
 	}
-	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE username='$nick';"))['adm']==1)&($_POST['dodrop'])){
-		unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],22));
+	if((mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE username='$nick';"))['adm']==1)&($_POST['dodrop'])){
+		unlink(substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],40));
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"DELETE FROM products WHERE id='$id';");
 		mysqli_query(mysqli_connect('localhost','root','','shop'),"DELETE FROM comments WHERE pid='$id';");
 	}
@@ -47,14 +47,15 @@
 	</style>
 </head>
 <body>
+	<div class="intro_inner">
 	<?php
-	echo "<br/>product name: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT name FROM products WHERE id='$id';"))['name'],"<br/>";
-	echo "<br/>manufacturer: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT mnf FROM products WHERE id='$id';"))['mnf'],"<br/>";
-	echo "<br/>product type: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT styp FROM products WHERE id='$id';"))['styp'],"<br/>";
-	echo "<br/>product type: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT pricetag FROM products WHERE id='$id';"))['pricetag']," rubles<br/>";
-	echo "<br/>description: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT descr FROM products WHERE id='$id';"))['descr'],"<br/>";
-	echo '<br/><img src="',substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],22),'"></img><br/>';
-	echo "<br/>rating: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT rtng FROM products WHERE id='$id';"))['rtng'],"<br/>";
+	echo "<br/>Название: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT name FROM products WHERE id='$id';"))['name'],"<br/>";
+	echo "<br/>Производитель: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT mnf FROM products WHERE id='$id';"))['mnf'],"<br/>";
+	echo "<br/>Тип: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT styp FROM products WHERE id='$id';"))['styp'],"<br/>";
+	echo "<br/>Цена: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT pricetag FROM products WHERE id='$id';"))['pricetag'],"  рублей<br/>";
+	echo "<br/>Описание: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT descr FROM products WHERE id='$id';"))['descr'],"<br/>";
+	echo '<br/><img src="',substr(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT link FROM products WHERE id='$id';"))['link'],40),'"></img><br/>';
+	echo "<br/>Рейтинг: ",mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT rtng FROM products WHERE id='$id';"))['rtng'],"<br/>";
 	?>
 	<?php
 	if((isset($_SESSION['username']))&(isset($_GET['prid']))){
@@ -78,7 +79,7 @@
 		<form method="post">
 			<textarea name="cmnt"></textarea>
 			<input type="hidden" name="docmnt" value="1">
-			<input type="submit" value="post">
+			<input type="submit" value="Оставить">
 		</form>
 	<?php
 	}
@@ -92,7 +93,7 @@
 	?>
 	<?php
 	$nick=$_SESSION['username'];
-	if(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT adm FROM users WHERE username='$nick';"))){
+	if(mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','register'),"SELECT adm FROM users WHERE username='$nick';"))){
 	?>
 	<br/>
 	<form method="post" enctype="multipart/form-data" > 
@@ -101,7 +102,7 @@
 		<textarea name="descr" placeholder="description"><?php echo mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT descr FROM products WHERE id='$id';"))['descr'];?></textarea>
 		<input type="text" name="mnf" value="<?php echo mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT mnf FROM products WHERE id='$id';"))['mnf'];?>" placeholder="manufacturer">
 		<input type="text" name="tag" value="<?php echo mysqli_fetch_assoc(mysqli_query(mysqli_connect('localhost','root','','shop'),"SELECT pricetag FROM products WHERE id='$id';"))['pricetag'];?>" placeholder="pricetag">
-		dopic:
+		Добавить:
 		<input type="checkbox" name="dopic">
 		<input type="file" name="pic">
 		<input type="hidden" name="MAX_FILE_SIZE" value="3000">
@@ -110,10 +111,11 @@
 	</form>
 	<form method="post">
 		<input type="hidden" name="dodrop" value="1">
-		<input type="submit" value="remove">
+		<input type="submit" value="Удалить">
 	</form>
 	<?php
 	}
 	?>
+</div>
 </body>
 </html>	
