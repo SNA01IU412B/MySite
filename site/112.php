@@ -43,7 +43,11 @@
 	<link rel="stylesheet" href="css/oldstyle.css" />
 	<meta charset="utf-8">
 	<style>
-		input {display:block;}
+		input {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			display:block;}
 	</style>
 </head>
 <body>

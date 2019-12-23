@@ -1,8 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<link rel="stylesheet" href="css/oldstyle.css" />
 	<title>Товары</title>
 	<meta charset="utf-8">
+<style>
+		input {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			display:block;
+		}
+	</style>
 </head>
 <body>
 	<?php

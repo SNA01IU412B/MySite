@@ -7,8 +7,14 @@
 <head>
 	<title>Shop</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/oldstyle.css" />
 	<style>
-		input{display:block;}
+		input {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			display:block;
+		}
 	</style>
 </head>
 <body>
