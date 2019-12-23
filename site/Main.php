@@ -24,7 +24,10 @@ require("auth.php");
 					<a class="nav_link" href="logout.php">
 						Выйти
 					</a>
-
+					<?php
+					 if ($_SESSION['adm'] == 1) { ?>
+					<a class="nav_link" href="111.php">БЕТА</a>
+				<?php } ?>
 				</nav>
 			</div>
 		</div>
