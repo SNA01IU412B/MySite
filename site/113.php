@@ -92,8 +92,8 @@
 					}
 				}
 			}
-			$q="SELECT id,styp,name,mnf,pricetag,rtng FROM products";
-			//.$where.$wmnf.$and.$wstyp.$orderby.$desc;
+			$q="SELECT id,styp,name,mnf,pricetag,rtng FROM products"
+			.$where.$wmnf.$and.$wstyp.$orderby.$desc;
 			$arow=mysqli_num_rows(mysqli_query($dbc,$q));
 			if(isset($_GET['pg'])){
 				$pg=($_GET['pg']-1)*20;

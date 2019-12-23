@@ -28,12 +28,12 @@
 	}
 	?>
 	<form method="post" enctype="multipart/form-data" > 
-		<input type="text" name="stype" value="<?php if(isSet($_POST['stype'])){echo $_POST['stype'];}?>" placeholder="type">
-		<input type="text" name="name" value="<?php if(isSet($_POST['name'])){echo $_POST['name'];}?>" placeholder="name">
-		<textarea name="descr" placeholder="description"></textarea>
-		<input type="text" name="mnf" value="<?php if(isSet($_POST['mnf'])){echo $_POST['mnf'];}?>" placeholder="manufacturer">
-		<input type="text" name="tag" value="<?php if(isSet($_POST['tag'])){echo $_POST['tag'];}?>" placeholder="pricetag">
-		<input type="file" name="pic">
+		<input type="text" name="stype" value="<?php if(isSet($_POST['stype'])){echo $_POST['stype'];}?>" placeholder="Тип">
+		<input type="text" name="name" value="<?php if(isSet($_POST['name'])){echo $_POST['name'];}?>" placeholder="Назваание">
+		<textarea name="descr" placeholder="Описание"></textarea>
+		<input type="text" name="mnf" value="<?php if(isSet($_POST['mnf'])){echo $_POST['mnf'];}?>" placeholder="Производитель">
+		<input type="text" name="tag" value="<?php if(isSet($_POST['tag'])){echo $_POST['tag'];}?>" placeholder="Цена">
+		<input type="file" name="Изображение">
 		<input type="hidden" name="doadd" value="1";>
 		<input type="hidden" name="MAX_FILE_SIZE" value="3000">
 		<input type="submit">
